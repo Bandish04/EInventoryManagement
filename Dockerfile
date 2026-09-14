@@ -1,5 +1,5 @@
 #Stage 1:Build Frontend
-FROM node:18 as build-stage
+FROM node:18 AS build-stage
 
 WORKDIR /code
 
@@ -18,8 +18,8 @@ RUN npm run build
 FROM python:3.14.7
 
 #Set Environment Variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /code
 
@@ -35,7 +35,7 @@ COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build/static /code/B
 COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build/index.html /code/Backend/EcommerceInventory/EcommerceInventory/templates/index.html
 
 #Run Django Migration Command
-RUN python ./Backend/EcommerceInventory/manage.py migrate
+#RUN python ./Backend/EcommerceInventory/manage.py migrate
 
 #Run Django Collectstatic Command
 RUN python ./Backend/EcommerceInventory/manage.py collectstatic --no-input
@@ -46,4 +46,5 @@ EXPOSE 80
 WORKDIR /code/Backend/EcommerceInventory
 
 #Run the Django Server
-CMD ["gunicorn","EcommerceInventory.wsgi:application","--bind","0.0.0.0:8000"]
+#CMD ["gunicorn","EcommerceInventory.wsgi:application","--bind","0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && gunicorn EcommerceInventory.wsgi:application --bind 0.0.0.0:8000"]
