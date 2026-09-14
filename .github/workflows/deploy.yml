@@ -38,9 +38,18 @@ jobs:
     - name: Deploy on AWS EC2
       run: |
         ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.AWS_EC2_IP }} << 'EOF'
+
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
           docker pull ${{ secrets.DOCKER_USERNAME }}/ecommerce-backend:latest
+
           docker stop ecommerce-backend || true
           docker rm ecommerce-backend || true
-          docker run -d --name ecommerce-backend -p 80:8000 ${{ secrets.DOCKER_USERNAME }}/ecommerce-backend:latest
+
+          docker run -d \
+            --name ecommerce-backend \
+            -p 80:8000 \
+            -e SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" \
+            ${{ secrets.DOCKER_USERNAME }}/ecommerce-backend:latest
+
         EOF
