@@ -21,8 +21,7 @@ FROM python:3.14.7
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-ARG SECRET_KEY
-ENV SECRET_KEY=${SECRET_KEY}
+
 
 WORKDIR /code
 
@@ -38,10 +37,10 @@ COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build/static /code/B
 COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build/index.html /code/Backend/EcommerceInventory/EcommerceInventory/templates/index.html
 
 #Run Django Migration Command
-RUN python ./Backend/EcommerceInventory/manage.py migrate
+#RUN python ./Backend/EcommerceInventory/manage.py migrate
 
 #Run Django Collectstatic Command
-RUN python ./Backend/EcommerceInventory/manage.py collectstatic --no-input
+#RUN python ./Backend/EcommerceInventory/manage.py collectstatic --no-input
 
 #Expose the port
 EXPOSE 80
@@ -49,5 +48,6 @@ EXPOSE 80
 WORKDIR /code/Backend/EcommerceInventory
 
 #Run the Django Server
-CMD ["gunicorn","EcommerceInventory.wsgi:application","--bind","0.0.0.0:8000"]
+#CMD ["gunicorn","EcommerceInventory.wsgi:application","--bind","0.0.0.0:8000"]
 #CMD ["sh", "-c", "python manage.py migrate && gunicorn EcommerceInventory.wsgi:application --bind 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --no-input && gunicorn EcommerceInventory.wsgi:application --bind 0.0.0.0:8000"]
