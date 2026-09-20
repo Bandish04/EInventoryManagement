@@ -16,7 +16,7 @@ RUN npm run build
 
 
 # Stage 2: Build Backend
-FROM python:3.11.0
+FROM python:3.14.7
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -39,8 +39,7 @@ COPY --from=build-stage /code/Frontend/ecommerce_inventory/build/index.html /cod
 # Expose Gunicorn port
 EXPOSE 8000
 
-# Move into Django project
 WORKDIR /code/Backend/EcommerceInventory
 
-# Start Django with Gunicorn
+# Start Gunicorn
 CMD ["gunicorn", "EcommerceInventory.wsgi:application", "--bind", "0.0.0.0:8000"]

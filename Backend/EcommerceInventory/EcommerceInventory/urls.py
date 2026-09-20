@@ -2,7 +2,7 @@
 URL configuration for EcommerceInventory project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.1/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,25 +15,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include,re_path
-from UserServices.Controller.DynamicFormController import DynamicFormController
+from django.urls import include, path, re_path
 
-from UserServices.Controller.AuthController import LoginAPIView, SignupAPIView
+from EcommerceInventory.views import index,FileUploadViewInS3
+from EcommerceInventory import settings
 from UserServices.Controller.DynamicFormController import DynamicFormController
 from UserServices.Controller.SuperAdminDynamicFormController import SuperAdminDynamicFormController
-from UserServices.Controller.SidebarController import ModuleView
+from UserServices.Controller.SidebarController import ModuleUrlsListAPIView, ModuleView
 from django.conf.urls.static import static
-from EcommerceInventory import settings
-from EcommerceInventory.views import index, FileUploadViewInS3 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('UserServices.urls')),
     path('api/getForm/<str:modelName>/',DynamicFormController.as_view(),name='dynamicForm'),
-    path('api/superAdminForm/<str:modelName>/',SuperAdminDynamicFormController.as_view(),name='superAdminDynamicForm'),
+    path('api/getForm/<str:modelName>/<str:id>/',DynamicFormController.as_view(),name='dynamicForm'),
+    path('api/superAdminForm/<str:modelName>/',SuperAdminDynamicFormController.as_view(),name='superadmindynamicForm'),
+    path('api/moduleUrls/',ModuleUrlsListAPIView.as_view(),name='moduleUrls_superadmin'),
     path('api/getMenus/',ModuleView.as_view(),name='sidebarmenu'),
     path('api/products/',include('ProductServices.urls')),
-    path('api/uploads/',FileUploadViewInS3.as_view(),name='fileupload'),
-
+    path('api/inventory/',include('InventoryServices.urls')),
+    path('api/orders/',include('OrderService.urls')),
+    path('api/uploads/',FileUploadViewInS3.as_view(),name='fileupload')
 ]
 
 if settings.DEBUG:
