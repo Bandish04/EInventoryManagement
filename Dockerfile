@@ -1,53 +1,46 @@
-#Stage 1:Build Frontend
+# Stage 1: Build Frontend
 FROM node:18 AS build-stage
 
 WORKDIR /code
 
+# Copy React project
 COPY ./Frontend/ecommerce_inventory/ /code/Frontend/ecommerce_inventory/
 
 WORKDIR /code/Frontend/ecommerce_inventory
 
-#Installing packages
+# Install packages
 RUN npm install
 
-#Building the frontend
+# Build frontend
 RUN npm run build
 
 
-#Stage 2:Build Backend
-FROM python:3.14.7
+# Stage 2: Build Backend
+FROM python:3.11.0
 
-#Set Environment Variables
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-
-
 WORKDIR /code
 
-#Copy Django Project to the container
+# Copy Django project
 COPY ./Backend/EcommerceInventory /code/Backend/EcommerceInventory/
 
-#Install the required packages
+# Install Python packages
 RUN pip install -r ./Backend/EcommerceInventory/requirements.txt
 
-#Copy the frontend build to the Django project
-COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build /code/Backend/EcommerceInventory/static/
-COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build/static /code/Backend/EcommerceInventory/static/
-COPY --from=build-stage ./code/Frontend/ecommerce_inventory/build/index.html /code/Backend/EcommerceInventory/EcommerceInventory/templates/index.html
+# Copy React static files to Django
+COPY --from=build-stage /code/Frontend/ecommerce_inventory/build/static /code/Backend/EcommerceInventory/static/
 
-#Run Django Migration Command
-#RUN python ./Backend/EcommerceInventory/manage.py migrate
+# Copy React index.html to Django templates
+COPY --from=build-stage /code/Frontend/ecommerce_inventory/build/index.html /code/Backend/EcommerceInventory/EcommerceInventory/templates/index.html
 
-#Run Django Collectstatic Command
-#RUN python ./Backend/EcommerceInventory/manage.py collectstatic --no-input
+# Expose Gunicorn port
+EXPOSE 8000
 
-#Expose the port
-EXPOSE 80
-
+# Move into Django project
 WORKDIR /code/Backend/EcommerceInventory
 
-#Run the Django Server
-#CMD ["gunicorn","EcommerceInventory.wsgi:application","--bind","0.0.0.0:8000"]
-#CMD ["sh", "-c", "python manage.py migrate && gunicorn EcommerceInventory.wsgi:application --bind 0.0.0.0:8000"]
-CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --no-input && gunicorn EcommerceInventory.wsgi:application --bind 0.0.0.0:8000"]
+# Start Django with Gunicorn
+CMD ["gunicorn", "EcommerceInventory.wsgi:application", "--bind", "0.0.0.0:8000"]

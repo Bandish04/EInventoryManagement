@@ -24,7 +24,7 @@ from UserServices.Controller.SuperAdminDynamicFormController import SuperAdminDy
 from UserServices.Controller.SidebarController import ModuleView
 from django.conf.urls.static import static
 from EcommerceInventory import settings
-from EcommerceInventory.views import index
+from EcommerceInventory.views import index, FileUploadViewInS3 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('UserServices.urls')),
@@ -32,6 +32,7 @@ urlpatterns = [
     path('api/superAdminForm/<str:modelName>/',SuperAdminDynamicFormController.as_view(),name='superAdminDynamicForm'),
     path('api/getMenus/',ModuleView.as_view(),name='sidebarmenu'),
     path('api/products/',include('ProductServices.urls')),
+    path('api/uploads/',FileUploadViewInS3.as_view(),name='fileupload'),
 
 ]
 
