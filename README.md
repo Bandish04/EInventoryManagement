@@ -1,256 +1,279 @@
-# Amazon Clone Project Using Django and React
+# 🛒 EInventoryManagement — Amazon Clone
 
-Welcome to the Amazon Clone Project! This project is based on a tutorial series by the SuperCoders YouTube channel. The series walks through creating a fully functional Amazon clone using Django and React, complete with an inventory management system.
+### Developed by Bandish Vaidya
 
-## Support 
-- You love our open source project? We love you too! Your sponsorship helps us dedicate more time to development, improvements, and community support.
+A full-stack Amazon-inspired e-commerce and inventory management application built using **Django, React, and MySQL**. This project was developed based on the tutorial series by the SuperCoders YouTube channel and extended around e-commerce operations, inventory control, and order management.
 
-- Show your appreciation for our open source project. Your sponsorship directly impacts our ability to innovate and grow.
-
-## Complete Project Flow 
-screenshots/Ecommerce.gif
-
-## Complete PO Flow (Purchase Order)
-
-<img src="screenshots/PO.gif" alt="Amazon Clone Ecommerce PO Flow" style="width: 100%;"/>
-
-## Complete SO Flow (Sales Order)
-
-<img src="screenshots/SO.gif" alt="Amazon Clone Ecommerce SO Flow" style="width: 100%;"/>
-
-## ER Diagram
-<img src="screenshots/ER_Diagram.png" alt="Amazon Clone Project ER Diagram" style="width: 100%;"/>
-
--
-
-
-## Project Overview
-
-This project involves creating a clone of Amazon's web application. It includes features such as user authentication, product listings, a shopping cart, and an inventory management system. The project is built using the following technologies:
-
-- **Backend**: Django (Python)
-- **Frontend**: React (JavaScript)
-- **Database**: MySQL
-
-## Features
-
-- User Authentication (Sign Up, Login, Logout)
-- Product Listing and Search
-- Product Detail View
-- Shopping Cart Functionality
-- Inventory Management System for Admin
-- Order Management
-- Purchase Order
-- Sales order
-- Supplier
-- Warehouse Management
-- User Management
-- Multi Level Ecommerce Website
-- Responsive Design
-
-## Getting Started
-
-### Prerequisites
-
-Ensure you have the following installed on your local development machine:
-
-- Python (>= 3.6)
-- Node.js (>= 14.0)
-- npm (>= 6.0)
-- Django (>= 5.0)
-- React (>= 17.0)
-- MySQL Server
-
-### Installation
-
-1. **Clone the Repository**
-
-### For Backend
-```
--cd backend
-python -m venv venv
-source ../venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-pip install -r requirements.txt
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'your_database_name',
-        'USER': 'your_database_user',
-        'PASSWORD': 'your_database_password',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-
-
-python manage.py migrate
-python manage.py runserver
-
-```
-
-### For Frontend
-
-```
-cd ../frontend
-npm install
-npm start
-```
-
-### Usage
-
-Once both the backend and frontend servers are running, you can access the application at `http://localhost:3000` for the frontend and `http://localhost:8000` for the backend.
-
-## Contributing
-
-We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more information on how to get started.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgements
-
-- Special thanks to the SuperCoders YouTube channel for providing the tutorial series that made this project possible.
+The application combines an e-commerce experience with an inventory management system that supports product administration, supplier management, warehouse organization, and purchase and sales order workflows.
 
 ---
 
-Enjoy building your Amazon clone! If you have any questions or run into issues, feel free to open an issue on this repository or reach out through the comments on the YouTube tutorial videos.
+## 👨‍💻 About the Developer
 
+**Bandish Vaidya**  
+Software Engineer | Full-Stack Developer
 
-## Screenshots
+- GitHub: [@Bandish04](https://github.com/Bandish04)
+- Project Repository: [EInventoryManagement](https://github.com/Bandish04/EInventoryManagement)
 
-### Empty Dashboard 
-<img src="screenshots/first.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+---
 
-### DIfferent Themes
+## ✨ Features
 
-## Light Theme
-<img src="screenshots/16.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+### 🛍️ E-Commerce
 
-## Blue Light Theme
-<img src="screenshots/17.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+- User registration, login, and logout
+- Product listings and product search
+- Product detail pages
+- Shopping cart functionality
+- Product reviews and questions
+- Responsive user interface
+- Multi-level e-commerce functionality
 
-## Blue Dark Theme
-<img src="screenshots/22.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+### 📦 Inventory Management
 
-## Green Light Theme
-<img src="screenshots/18.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+- Product creation and management
+- Category management
+- Dynamic product forms with JSON key-value inputs
+- Multi-step forms for product creation
+- Multiple file uploads with image previews
+- Product image previews
+- Search, sorting, pagination, and data grid functionality
 
-## Green Dark Theme
-<img src="screenshots/19.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+### 🏢 Warehouse Management
 
-## Red Light Theme
-<img src="screenshots/20.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+- Warehouse management
+- Rack and shelf management
+- Floor management
+- Inventory organization and tracking
 
-## Red Dark Theme
-<img src="screenshots/21.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+### 🚚 Supplier and User Management
 
-## Orange Light Theme
-<img src="screenshots/23.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+- Supplier management
+- Customer management
+- Administrator management
+- Staff management
+- User access levels and permissions
+- Module URL and permission management
 
-## Orange Dark Theme
-<img src="screenshots/24.png" alt="Amazon Clone Project Empty Dashboard" style="width: 100%;"/>
+### 📋 Order Management
 
+- Purchase Order (PO) creation and management
+- Purchase Order editing for draft orders
+- Sales Order (SO) workflow
+- Inventory-related order management
 
-### Dynamic Form For Add Product ScreenShot with JSON Key Value Pair Input and Multi Step form
+---
 
-<img src="screenshots/2.png" alt="Amazon Clone Project Add Products" style="width: 100%;"/>
+## 🛠️ Technology Stack
 
-<img src="screenshots/3.png" alt="Amazon Clone Project Add Products" style="width: 100%;"/>
+| Technology | Purpose |
+|---|---|
+| Python | Backend programming language |
+| Django | Backend web framework |
+| Django REST Framework | REST API development |
+| React | Frontend user interface |
+| JavaScript | Frontend functionality |
+| MySQL | Relational database |
+| HTML5 | Web page structure |
+| CSS3 | Styling and responsive layouts |
+| npm | Frontend package management |
+| Git and GitHub | Version control and source code management |
 
-<img src="screenshots/4.png" alt="Amazon Clone Project Add Products" style="width: 100%;"/>
+---
 
-<img src="screenshots/5.png" alt="Amazon Clone Project Add Products" style="width: 100%;"/>
+## 🏗️ Project Architecture
 
-<img src="screenshots/6.png" alt="Amazon Clone Project Add Products" style="width: 100%;"/>
+The application follows a client-server architecture.
 
+- **Frontend — React:** Provides the user interface for the e-commerce application and inventory management dashboard.
+- **Backend — Django:** Handles application logic, authentication, permissions, inventory operations, and order management.
+- **API Layer — Django REST Framework:** Connects the frontend to the backend through API requests.
+- **Database — MySQL:** Stores application data, including users, products, categories, suppliers, warehouses, and order-related information.
 
-## Sidebar Active Indicator
-<img src="screenshots/7.png" alt="Amazon Clone Project Sidebar Active" style="width: 100%;"/>
+### Application Flow
 
-## Manage Category Page With Search,Sorting,Pagination,Item Per page,DataGrid,Expandable Child Item and API Integrated
+1. Users interact with the React frontend.
+2. The frontend sends requests to the Django REST API.
+3. Django processes requests, validates permissions, and executes application logic.
+4. The backend retrieves or updates information in the MySQL database.
+5. The API returns responses to the frontend.
+6. React displays the updated information to the user.
 
-<img src="screenshots/8.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+---
 
+## ⚙️ Prerequisites
 
-<img src="screenshots/9.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+Before running the project locally, install the following:
 
+- Python 3
+- Node.js and npm
+- MySQL Server
+- Git
 
-<img src="screenshots/10.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+The exact supported versions depend on the dependencies specified in the project's backend and frontend configuration files.
 
-<img src="screenshots/11.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+---
 
-<img src="screenshots/12.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+## 🚀 Getting Started
 
-<img src="screenshots/13.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/Bandish04/EInventoryManagement.git
+cd EInventoryManagement
+```
 
-<img src="screenshots/14.png" alt="Amazon Clone Project Manage Category" style="width: 100%;"/>
+### 2. Backend Setup — Django
 
-## Added Multi File Upload with Preview in Dynamic Form 
+Navigate to the backend directory:
 
-<img src="screenshots/15.png" alt="Amazon Clone Project Dynamic Form with Multi File Upload" style="width: 100%;"/>
+```bash
+cd Backend
+```
 
-## Added Manage Product Page
+Create a virtual environment:
 
-<img src="screenshots/25.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+```bash
+python -m venv env
+```
 
-<img src="screenshots/26.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+Activate the virtual environment.
 
-<img src="screenshots/27.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+**Windows PowerShell:**
 
-## Added Manage Product Review and Manage Product Questions and Preview Images
+```powershell
+.\env\Scripts\Activate.ps1
+```
 
-<img src="screenshots/28.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+**Windows Command Prompt:**
 
-<img src="screenshots/29.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+```cmd
+env\Scripts\activate
+```
 
-<img src="screenshots/30.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+Install the backend dependencies:
 
-<img src="screenshots/31.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+```bash
+python -m pip install -r requirements.txt
+```
 
-<img src="screenshots/32.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+Configure the MySQL database using the settings provided by the project. Update the database name, username, password, host, and port as required by your local environment.
 
-<img src="screenshots/33.png" alt="Amazon Clone Project Manange Product Page" style="width: 100%;"/>
+Apply database migrations:
 
-## Added Complete Warehouse and Rack Shelf and Floor Management
+```bash
+python manage.py migrate
+```
 
-<img src="screenshots/34.png" alt="Amazon Clone Project Manange Warehouse" style="width: 100%;"/>
+Start the Django development server:
 
-<img src="screenshots/35.png" alt="Amazon Clone Project Manange Warehouse" style="width: 100%;"/>
+```bash
+python manage.py runserver
+```
 
-<img src="screenshots/36.png" alt="Amazon Clone Project Manange Warehouse" style="width: 100%;"/>
+The backend will normally be available at:
 
-## Added Complete Manage Supplier/Admin/Customer/Staff
+`http://127.0.0.1:8000/`
 
-<img src="screenshots/37.png" alt="Amazon Clone Project Complete Manage Supplier/Admin/Customer/Staff" style="width: 100%;"/>
+### 3. Frontend Setup — React
 
-<img src="screenshots/38.png" alt="Amazon Clone Project Complete Manage Supplier/Admin/Customer/Staff" style="width: 100%;"/>
+Open a new terminal and navigate to the frontend directory from the project root:
 
-## Added Complete User Permissions and Assign Permission to User and Module Urls Manage
+```bash
+cd Frontend
+```
 
-<img src="screenshots/39.png" alt="User Access Level and Module Urls Permission" style="width: 100%;"/>
+Install the frontend dependencies:
 
-<img src="screenshots/40.png" alt="User Access Level and Module Urls Permission" style="width: 100%;"/>
+```bash
+npm install
+```
 
-<img src="screenshots/41.png" alt="User Access Level and Module Urls Permission" style="width: 100%;"/>
+Start the React development server:
 
-<img src="screenshots/42.png" alt="User Access Level and Module Urls Permission" style="width: 100%;"/>
+```bash
+npm start
+```
 
-<img src="screenshots/43.png" alt="User Access Level and Module Urls Permission" style="width: 100%;"/>
+The frontend will normally be available at:
 
-<img src="screenshots/44.png" alt="User Access Level and Module Urls Permission" style="width: 100%;"/>
+`http://localhost:3000/`
 
-## Added Create Purchase Order
+**Note:** Directory names, frontend scripts, and setup commands should match the actual project structure and configuration files. Configure the frontend API URL to point to the running Django backend if required.
 
-<img src="screenshots/45.png" alt="Create Purchase Order" style="width: 100%;"/>
+---
 
-## Added Manage Purchase Order and Edit Draft PO Order
+## 🔐 Security and Configuration
 
-<img src="screenshots/47.png" alt="Manage Purchase Order" style="width: 100%;"/>
+Before running the application, configure the required database credentials and other environment-specific settings.
 
-<img src="screenshots/46.png" alt="Edit Draft Purchase Order" style="width: 100%;"/>
+- Do not commit database passwords, API keys, secret keys, or other sensitive information.
+- Use environment variables for sensitive configuration where supported.
+- Keep development and production settings separate.
+- Configure appropriate database permissions.
+- Use secure settings when deploying the application to production.
 
-## Commits
-# Commit Tree
+---
+
+## 🗄️ Database Overview
+
+The application uses MySQL as its relational database.
+
+Its data model supports the main areas of the application, including:
+
+- User accounts and permissions
+- Product and category management
+- Product reviews and questions
+- Suppliers and customers
+- Warehouse, rack, shelf, and floor management
+- Purchase orders
+- Sales orders
+- Inventory and related transactions
+
+The actual tables, model relationships, and foreign-key constraints are defined by the project's Django models and database migrations.
+
+---
+
+## 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes.
+4. Test the changes locally.
+5. Submit a pull request describing your improvements.
+
+Please ensure that changes are tested and do not introduce regressions in existing functionality.
+
+---
+
+## 📄 License
+
+Please refer to the repository's `LICENSE` file for the applicable license.
+
+If the repository does not contain a `LICENSE` file, add the license you intend to use before claiming that the project is licensed under a particular license.
+
+---
+
+## 🙏 Acknowledgements
+
+Special thanks to the **SuperCoders YouTube channel** for the tutorial series that inspired this project.
+
+Thanks also to the open-source communities behind Django, Django REST Framework, React, and MySQL for the tools and resources that support full-stack development.
+
+---
+
+## 📬 Contact
+
+**Bandish Vaidya**
+
+- GitHub: [https://github.com/Bandish04](https://github.com/Bandish04)
+- Repository: [https://github.com/Bandish04/EInventoryManagement](https://github.com/Bandish04/EInventoryManagement)
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
+
+**Built with ❤️ by Bandish Vaidya**
