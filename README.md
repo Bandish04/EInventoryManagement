@@ -8,7 +8,7 @@ Welcome to the Amazon Clone Project! This project is based on a tutorial series 
 - Show your appreciation for our open source project. Your sponsorship directly impacts our ability to innovate and grow.
 
 ## Complete Project Flow 
-<img src="screenshots/Ecommerce.gif" alt="Amazon Clone Ecommerce Flow" style="width: 100%;"/>
+screenshots/Ecommerce.gif
 
 ## Complete PO Flow (Purchase Order)
 
